@@ -1,0 +1,16 @@
+# Core LiveKit agent framework (1.x APIs: AgentSession, RealtimeModel, noise cancellation)
+livekit-agents>=1.0
+livekit-api>=0.6.0
+
+# Gemini Live API (speech-to-speech: STT + LLM + TTS + turn detection in one model)
+livekit-plugins-google>=1.0
+livekit-plugins-noise-cancellation
+
+# Booking webhook call (n8n) + form-trigger HTTP server
+aiohttp>=3.9.0
+fastapi>=0.110.0
+uvicorn>=0.29.0
+
+# Utilities
+python-dotenv>=1.0.0
+certifi>=2024.0.0

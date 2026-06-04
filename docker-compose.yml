@@ -1,0 +1,23 @@
+services:
+  # The voice agent worker — joins rooms and runs the Gemini Live conversation.
+  voice-agent:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - .:/app # For development/hot-reload (remove in prod)
+    network_mode: host # Recommended for WebRTC/Voice low latency
+    command: ["python", "agent.py", "start"]
+
+  # The form -> call trigger HTTP endpoint (your lead form's webhook POSTs here).
+  trigger-server:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    command: ["uvicorn", "trigger_server:app", "--host", "0.0.0.0", "--port", "8080"]

@@ -1,0 +1,14 @@
+# Keep secrets, archives, and local cruft out of the Docker build context/image.
+.env
+.env.local
+_archive/
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git/
+.gitignore
+node_modules/
+*.log
